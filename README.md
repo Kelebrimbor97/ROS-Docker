@@ -2,7 +2,7 @@
 
 ### Description
 
-Working with robotics involves using many different software suites. Often, these may clash with each other. In programming projects in Python, we have an Anaconda or a virtual enviroment. However, ROS installations can be tedious and are often prone to breaking, which is why using Docker containers is a better option than having a base installation.
+Working with robotics involves using many different software suites. Often than can often clash with each other. In Python projects, environments like Anaconda or virtual enviroments are commonly used to manage dependencies. However, ROS installations can be tedious and are often prone to breaking. Therefore, using Docker containers is often a better option than relying on a base installation, as they provide a more stable and isolated environment.
 
 
 ## 1. Instructions to have a stable Ubuntu installation
