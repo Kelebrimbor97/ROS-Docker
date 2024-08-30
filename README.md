@@ -52,6 +52,89 @@ After you are done installing Ubuntu, follow the following instructions from Lam
 
 And that's it, you have a very stable installation that includes PyTorch®, TensorFlow, CUDA, cuDNN, and NVIDIA Drivers!
 
-## 2. Docker Tutorial
+## 2. Docker Setup
 
-(Coming soon!)
+Now that you have all the prerequisites installed with Ubuntu, we can get started with Docker.
+
+### 2.1 Installing Docker
+
+Depending on the OS you are using, you need to follow installation instructions for the appropriate OS.
+
+The official installation instructions for Docker can be found [here](https://docs.docker.com/engine/install/).
+
+### 2.2 Post Installation steps (Linux only)
+
+After installation, for any Linux based installation, you must run the following commands:
+
+1. `sudo groupadd docker`
+2. `sudo usermod -aG docker $USER`
+
+Now, reboot your system with:
+
+3. `sudo reboot`
+
+Login again and run the following command:
+
+4. `newgrp docker`
+
+Finally, to verify that we can run `docker` without `sudo`, run the `hello-world` container using the command:
+
+5. `docker run hello-world`
+
+If it runs, you have successfully run the post-installation steps.
+
+## 3. Setting up the ROS environment
+
+We are finally ready to use our ROS Docker image. To do that, clone this repo, build the docker image, and run it using the following steps:
+
+### 3.1. Install git:
+    
+    `sudo apt-get install git`
+
+### 3.2. Running the Docker:
+
+1. Clone this repository using the command:
+
+    `git clone https://github.com/Kelebrimbor97/ROS-Docker.git`
+
+2. Navigate to to location where the Dockerfile is stored:
+
+    `cd ROS-Docker/Scripts/Galactic/`
+
+3. Build the docker Image using this command:
+
+    `docker build -t modelling_ros .`
+
+    > [!Tip]
+    >- `modelling_ros` can be replaced with any other name of your choice, but remember to replace it in future Dockerfiles you create.
+
+>[!Note]
+>- The following 2 commands are what you have to use everytime you want to run the docker.
+
+4. Allow docker to have port access:
+
+    `xhost +local:docker`
+
+5. Spin up a container by using the image created in the previous step:
+
+    `docker run -it --rm --name=project_0 --gpus=all --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" modelling_ros`
+
+    > [!Tip]
+    >- You can again have a container name of you choice instead of `project_0`.
+
+6. It's Alive! If you see something like this, your docker container is up and running:
+
+    `root@User:/#  `
+
+    If not, feel free to cry...
+
+### 3.3. Using the Docker
+
+>[!Warning]
+>- Any changes you make to the docker container will not be saved and will be lost once the current container is shut down.
+
+Once you have a container running, start using it as you would with a terminal. The only difference is that you never need to use `sudo` again.
+
+For opening a different terminal in the same container, get the container name and `exec` into it. Example:
+
+`docker exec -it project_0 bash`
