@@ -19,7 +19,7 @@ For this course, and for a stable installation, we recommend that you install ei
 > Skip following instructions in this section if you plan to use any other OS except Ubuntu 22.04 or Ubuntu 20.04. Note that running a docker container is independent of this.
 
 >[!Caution]
-> Remeber to be equipped with the foloowing things before you get started with the installation:
+> Remeber to be equipped with the following things before you get started with the installation:
 > 1. A computer with an Ubuntu 22.04 or 20.04 installation (prefereable fresh but not important).
 > 2. A stable and high - speed internet connection
 > 3. High patience. At times, the downloads may be slow regardless of how fast your connection is. It may be just an hour or as long as 6 to 8.
