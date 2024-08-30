@@ -105,10 +105,10 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
     `docker build -t modelling_ros .`
 
-    > [!Tip]
+    > [!TIP]
     >- `modelling_ros` can be replaced with any other name of your choice, but remember to replace it in future Dockerfiles you create.
 
->[!Note]
+> [!NOTE]
 >- The following 2 commands are what you have to use everytime you want to run the docker.
 
 4. Allow docker to have port access:
@@ -119,7 +119,7 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
     `docker run -it --rm --name=project_0 --gpus=all --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" modelling_ros`
 
-    > [!Tip]
+    > [!TIP]
     >- You can again have a container name of you choice instead of `project_0`.
 
 6. It's Alive! If you see something like this, your docker container is up and running:
