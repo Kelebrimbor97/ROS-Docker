@@ -39,9 +39,6 @@ After you are done installing Ubuntu, follow the following instructions from Lam
 
 > [!Note]
 >- It is a good practice to regularly update your system using:
-
 > `sudo apt-get update && sudo apt-get upgrade`
-
 > followed by:
-
 > `sudo apt-get dist-upgrade`
