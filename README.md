@@ -42,3 +42,13 @@ After you are done installing Ubuntu, follow the following instructions from Lam
 > `sudo apt-get update && sudo apt-get upgrade`
 >- followed by:
 > `sudo apt-get dist-upgrade`
+
+4. We now utilize a GPU accelerated docker using the following command:
+
+    `sudo apt-get install docker.io nvidia-container-toolkit`
+
+And that's it, you have a very stable installation that includes PyTorch®, TensorFlow, CUDA, cuDNN, and NVIDIA Drivers!
+
+## 2. Docker Tutorial
+
+(Coming soon!)
