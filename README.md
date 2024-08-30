@@ -2,7 +2,7 @@
 
 ### Description
 
-Working with robotics involves using many different software suites. Often, these may clash with each other. In programming projects in Python, we have an Anaconda or a virtual enviroment. However, ROS installations can be tedious and are often prone to breaking, which is why using Docker containers is a better option than having a base installation.
+Working with robotics involves using many different software suites that can often clash with each other. In Python projects, environments like Anaconda or virtual enviroments are commonly used to manage dependencies. However, ROS installations can be tedious and are often prone to breaking. Therefore, using Docker containers is often a better option than relying on a base installation, as they provide a more stable and isolated environment.
 
 
 ## 1. Instructions to have a stable Ubuntu installation
@@ -19,7 +19,7 @@ For this course, and for a stable installation, we recommend that you install ei
 > Skip following instructions in this section if you plan to use any other OS except Ubuntu 22.04 or Ubuntu 20.04. Note that running a docker container is independent of this.
 
 >[!Caution]
-> Remeber to be equipped with the foloowing things before you get started with the installation:
+> Remeber to be equipped with the following things before you get started with the installation:
 > 1. A computer with an Ubuntu 22.04 or 20.04 installation (prefereable fresh but not important).
 > 2. A stable and high - speed internet connection
 > 3. High patience. At times, the downloads may be slow regardless of how fast your connection is. It may be just an hour or as long as 6 to 8.
