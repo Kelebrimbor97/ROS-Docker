@@ -129,14 +129,14 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
 1. Clone this repository using the command:
 
-    `git clone https://github.com/Kelebrimbor97/ROS-Docker.git`
+    git clone https://github.com/Kelebrimbor97/ROS-Docker.git
 
 >[!TIP]
 > Remeber to do a `git pull` from within your repo to update your repo to the latest versions.
 
 3. Navigate to to location where the Dockerfile is stored:
 
-    `cd ROS-Docker/Scripts/Galactic/`
+    cd ROS-Docker/Scripts/Galactic/
 
 4. Build the docker Image using this command:
 
