@@ -125,7 +125,7 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
     
 `sudo apt-get install git`
 
-### 3.2. Running the Docker:
+### 3.2. Building the Docker Image:
 
 1. Clone this repository using the command:
 
@@ -149,27 +149,30 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 > [!TIP]
 >- `modelling_ros` can be replaced with any other name of your choice, but remember to replace it in future Dockerfiles you create.
 
+
+### 3.3. Running a Docker container using the built Image
+
 > [!NOTE]
 >- The following 2 commands are what you have to use everytime you want to run the docker.
 
-4. Allow docker to have port access:
+1. Allow docker to have port access:
 
     `xhost +local:docker`
 
-5. Spin up a container by using the image created in the previous step:
+2. Spin up a container by using the image created in the previous step:
 
     `docker run -it --rm --name=project_0 --gpus=all --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" modelling_ros`
 
 > [!TIP]
 >- You can again have a container name of you choice instead of `project_0`.
 
-6. It's Alive! If you see something like this, your docker container is up and running:
+3. It's Alive! If you see something like this, your docker container is up and running:
 
     `root@User:/#  `
 
     If not, feel free to cry...
 
-### 3.3. Execing into the Docker (Opening a separate terminal in same container)
+### 3.4. Execing into the Docker (Opening a separate terminal in same container)
 
 >[!Warning]
 >- Any changes you make to the docker container will not be saved and will be lost once the current container is shut down.
