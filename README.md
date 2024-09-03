@@ -140,10 +140,11 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
 4. Build the docker Image using this command:
 
+    `docker build -t modelling_ros .`
+
 > [!IMPORTANT]
 > Take a look at the comments on lines 9 and 10 of the  in `Scripts/Galactic/Dockerfile` before you run this command.
 
-`docker build -t modelling_ros .`
 
 > [!TIP]
 >- `modelling_ros` can be replaced with any other name of your choice, but remember to replace it in future Dockerfiles you create.
