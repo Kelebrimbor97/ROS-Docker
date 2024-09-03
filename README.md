@@ -185,4 +185,6 @@ For opening a different terminal in the same container, get the container name a
 
 ## 4. Installing turtlebot3
 
-You can try installing turtlebot3 using the following instructions inside your running Docker container.
+<!-- You can try installing turtlebot3 using the following instructions inside your running Docker container. -->
+
+(Tutorial in Class, feel free to try it out in the container)
