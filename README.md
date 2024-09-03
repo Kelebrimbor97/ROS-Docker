@@ -140,6 +140,9 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
 4. Build the docker Image using this command:
 
+> [!IMPORTANT]
+> Take a look at the comments on lines 9 and 10 before you run this command.
+
     `docker build -t modelling_ros .`
 
 > [!TIP]
