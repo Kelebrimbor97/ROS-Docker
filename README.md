@@ -53,22 +53,52 @@ After you are done installing Ubuntu, follow the following instructions from Lam
 
 And that's it, you have a very stable installation that includes PyTorch®, TensorFlow, CUDA, cuDNN, and NVIDIA Drivers!
 
-## 2. Docker Setup
+## 2. Docker Setup (Ubuntu Only)
 
-Now that you have all the prerequisites installed with Ubuntu, we can get started with Docker.
+Now that you have all the prerequisites installed with Ubuntu, we can get started with Docker. Note that we are installing only Docker Engine, and not Docker Desktop.
 
-### 2.1 Installing Docker
+([Official Instructions to install Docker Engine](https://docs.docker.com/engine/install/ubuntu/))
+
+> [!Note]
+>- Since we support only Ubuntu installations for this course, the **following steps are for Ubuntu ONLY**.
+>- Follow the steps from official documentation, if you wish to use Docker Desktop for [Windows](https://docs.docker.com/desktop/install/windows-install/) or [MacOS](https://docs.docker.com/desktop/install/mac-install/).
+
+### 2.1 Installing Docker Engine
 
 > [!Caution]
 > Skip this sub-section and move directly to sub-section 2.2 if you followed section 1 
 
-Depending on the OS you are using, you need to follow installation instructions for the appropriate OS.
+1. Uninstall old packages:
 
-The official installation instructions for Docker can be found [here](https://docs.docker.com/engine/install/).
+    `for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done`
 
-### 2.2 Post Installation steps (Linux only)
+2. Install Docker Engine using Docker's `apt` repository, by running the sequence of commands below. They are in bullets to avoid confusion.
+    
+    - `sudo apt-get update`
+    
+    - `sudo apt-get install ca-certificates curl`
+    
+    - `sudo install -m 0755 -d /etc/apt/keyrings`
 
-After installation, for any Linux based installation, you must run the following commands:
+    - `sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc`
+
+    - `sudo chmod a+r /etc/apt/keyrings/docker.asc`
+    
+    - ```echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null```
+    
+    - `sudo apt-get update`
+
+3. Install the Docker Packages:
+
+    `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
+
+4. Verify that the Docker Engine installation is successful by running the `hello-world` image:
+
+    `sudo docker run hello-world`
+
+### 2.2 Post Installation steps
+
+After installation, for Ubuntu based installation, you must run the following commands:
 
 1. `sudo groupadd docker`
 2. `sudo usermod -aG docker $USER`
@@ -135,7 +165,7 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
     If not, feel free to cry...
 
-### 3.3. Using the Docker
+### 3.3. Execing into the Docker (Opening a separate terminal in same container)
 
 >[!Warning]
 >- Any changes you make to the docker container will not be saved and will be lost once the current container is shut down.
@@ -145,3 +175,7 @@ Once you have a container running, start using it as you would with a terminal. 
 For opening a different terminal in the same container, get the container name and `exec` into it. Example:
 
 `docker exec -it project_0 bash`
+
+## 4. Installing turtlebot3
+
+You can try installing turtlebot3 using the following instructions inside your running Docker container.
