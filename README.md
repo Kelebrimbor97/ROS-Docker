@@ -6,6 +6,9 @@ Working with robotics involves using many different software suites that can oft
 
 
 ## 1. Instructions to have a stable Ubuntu installation
+>[!Warning]
+>- Skip following instructions in this section if you plan to use any other OS except Ubuntu 22.04 or Ubuntu 20.04. Note that running a docker container is independent of this.
+>- This section is for Computer with a **Nvidia GPU ONLY**. People with other GPUs should skip this section.
 
 For any of your projects, having a stable Ubuntu Installation is of foremeost importance as the main image installed in you computer provides a stable foundation for everything else, be it a conda environment or as it is in this case, a Docker Image.
 
@@ -15,8 +18,6 @@ For this course, and for a stable installation, we recommend that you install ei
 >[!Note]
 > Although as of the moment this tutorial is being written, Ubuntu has been out for around 4 months, it doesn't support Lambda stack yet, which we use to have a super stable installation that makes sure that you don't have to deal with driver issues.
 
->[!Warning]
-> Skip following instructions in this section if you plan to use any other OS except Ubuntu 22.04 or Ubuntu 20.04. Note that running a docker container is independent of this.
 
 >[!Caution]
 > Remeber to be equipped with the following things before you get started with the installation:
@@ -58,6 +59,9 @@ Now that you have all the prerequisites installed with Ubuntu, we can get starte
 
 ### 2.1 Installing Docker
 
+> [!Caution]
+> Skip this sub-section and move directly to sub-section 2.2 if you followed section 1 
+
 Depending on the OS you are using, you need to follow installation instructions for the appropriate OS.
 
 The official installation instructions for Docker can be found [here](https://docs.docker.com/engine/install/).
@@ -89,7 +93,7 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
 ### 3.1. Install git:
     
-    `sudo apt-get install git`
+`sudo apt-get install git`
 
 ### 3.2. Running the Docker:
 
@@ -97,11 +101,14 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
     `git clone https://github.com/Kelebrimbor97/ROS-Docker.git`
 
-2. Navigate to to location where the Dockerfile is stored:
+>[!TIP]
+> Remeber to do a `git pull` from within your repo to update your repo to the latest versions.
+
+3. Navigate to to location where the Dockerfile is stored:
 
     `cd ROS-Docker/Scripts/Galactic/`
 
-3. Build the docker Image using this command:
+4. Build the docker Image using this command:
 
     `docker build -t modelling_ros .`
 
