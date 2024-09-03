@@ -19,8 +19,8 @@ For this course, and for a stable installation, we recommend that you install ei
 > Although as of the moment this tutorial is being written, Ubuntu has been out for around 4 months, it doesn't support Lambda stack yet, which we use to have a super stable installation that makes sure that you don't have to deal with driver issues.
 
 
->[!Caution]
-> Remeber to be equipped with the following things before you get started with the installation:
+>[!Important]
+> Remember to be equipped with the following things before you get started with the installation:
 > 1. A computer with an Ubuntu 22.04 or 20.04 installation (prefereable fresh but not important).
 > 2. A stable and high - speed internet connection
 > 3. High patience. At times, the downloads may be slow regardless of how fast your connection is. It may be just an hour or as long as 6 to 8.
