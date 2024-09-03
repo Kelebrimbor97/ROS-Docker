@@ -11,7 +11,7 @@
 
 FROM nvidia/cuda:12.2.0-runtime-ubuntu20.04 AS base
 
-# FROM ubuntu20.04 AS base
+# FROM ubuntu:20.04 AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
