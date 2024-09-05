@@ -185,6 +185,8 @@ For opening a different terminal in the same container, get the container name a
 
 ## 4. Installing turtlebot3
 
-<!-- You can try installing turtlebot3 using the following instructions inside your running Docker container. -->
+Given that we have a base image with ROS installed, we will create another image from the base one for our turtlebot3. Think of this similar to having a child class inheriting qualities from the parent class.
 
-(Tutorial in Class, feel free to try it out in the container)
+For doing that, navigate to Scripts/Galactic/Projects/Turtlebot3 and simply build the image from the Dockerfile using the following command:
+
+`docker build -t turtlebot3_galactic .`
