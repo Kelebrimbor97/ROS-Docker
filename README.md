@@ -190,3 +190,40 @@ Given that we have a base image with ROS installed, we will create another image
 For doing that, navigate to Scripts/Galactic/Projects/Turtlebot3 and simply build the image from the Dockerfile using the following command:
 
 `docker build -t turtlebot3_galactic .`
+
+## 5. Using Visual Studio Code
+
+If you would like to use VS Code as a development enviornment, there is an excelent integration with Docker that is recommended. Follow these steps to set up a workspace for VS Code and Docker.
+
+### 5.1. Install VS Code and devcontainer extension
+
+1. Run the following command in a terminal to install vs code
+
+`sudo snap install --classic code # or code-insiders`
+
+2. Open vs code and press ctrl+shift+x
+
+3. type "Dev Containers" and download the extension
+
+### 5.1. Create a workspace folder and copy boilerplate files
+
+Create a workspace folder where you would like your project and copy the .devcontainer folder from Scripts/Galactic/VSCode into it.
+
+ex.
+
+1. `cd ~`
+
+2. `mkdir myworkspace`
+
+3. `cp ./ROS-DOCKER/Scripts/Galactic/VSCode/.devcontainer ./myworkspace`
+
+### 5.2. Open the folder in a Docker container
+
+1. Open the workspace folder in vs code.
+
+2. Press ctrl+shift+P and type "Dev Containers: Open Folder in Container" and press enter
+
+3. The VS Code window should reload and you are now working in a docker container!
+
+> [!TIP]
+>- You can open more terminals with ctrl+shift+`
