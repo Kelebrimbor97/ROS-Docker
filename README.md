@@ -192,7 +192,9 @@ For doing that, navigate to Scripts/Galactic/Projects/Turtlebot3 and simply buil
 
 `docker build -t turtlebot3_galactic .`
 
+> [!TIP]
 Note: Run this command in a Linux terminal, not inside a Docker container.
+
 Note: If you install TurtleBot3 using our Docker image as described in Section 4 of these instructions, you can skip Step 4 ('Importing TurtleBot3') in the Project 0 instructions and jump to last command and Launch the turtlebot in Gazebo using:
 
 `ros2 launch turtlebot3_gazebo empty_world.launch.py`
