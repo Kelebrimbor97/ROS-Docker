@@ -165,6 +165,7 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
 > [!TIP]
 >- You can again have a container name of you choice instead of `project_0`.
+>- If your computer does not have a GPU, remove the parameter "--gpus=all" from the above command.
 
 3. It's Alive! If you see something like this, your docker container is up and running:
 
