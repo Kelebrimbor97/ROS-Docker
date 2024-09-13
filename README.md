@@ -180,7 +180,7 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
 Once you have a container running, start using it as you would with a terminal. The only difference is that you never need to use `sudo` again.
 
-For opening a different terminal in the same container, get the container name and `exec` into it. Example:
+For opening a different terminal in the same container, first open a new terminal and then get the container name and `exec` into it. Example:
 
 `docker exec -it project_0 bash`
 
