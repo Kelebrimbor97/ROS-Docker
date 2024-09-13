@@ -199,7 +199,7 @@ For doing that, navigate to Scripts/Galactic/Projects/Turtlebot3 and simply buil
 `ros2 launch turtlebot3_gazebo empty_world.launch.py`
 
 
-## 5. How to run next time
+## 5. How to run the next time
 
 1. Allow docker to have port access:
 
@@ -208,14 +208,16 @@ For doing that, navigate to Scripts/Galactic/Projects/Turtlebot3 and simply buil
 2. Spin up a container by using the image created in the previous step:
 
     `docker run -it --rm --name=project_0 --gpus=all --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" turtlebot3_galactic`
+   
    or
+   
     `docker run -it --rm --name=project_0 --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" turtlebot3_galactic`
 
 4. Launch Gazebo using
    `ros2 launch turtlebot3_gazebo empty_world.launch.py`
    
 5. To run teleop node, open another linux terminal and run this:
-   `Docker exec -it project_0 bash`
+   `docker exec -it project_0 bash`
    
 Then luanch teleop using this code:
    `ros2 run turtlebot3_teleop teleop_keyboard`
