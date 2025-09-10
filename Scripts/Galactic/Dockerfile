@@ -15,6 +15,21 @@ FROM nvidia/cuda:12.2.0-runtime-ubuntu20.04 AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+
+# Clean out any old ROS keys/sources that may carry the expired key
+RUN rm -f /etc/apt/sources.list.d/ros2.list \
+          /etc/apt/trusted.gpg.d/ros* \
+          /usr/share/keyrings/ros-archive-keyring.gpg \
+          /etc/apt/keyrings/ros-archive-keyring.gpg || true
+
+
+# Install the current ROS key into a dedicated keyring and add the repo with signed-by
+RUN mkdir -p /etc/apt/keyrings && \
+    curl -fsSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
+      | gpg --dearmor -o /etc/apt/keyrings/ros-archive-keyring.gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu jammy main" \
+      > /etc/apt/sources.list.d/ros2.list
+
 # Install language
 RUN apt-get update && apt-get install -y \
   locales \
