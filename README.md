@@ -239,7 +239,7 @@ docker run -it --rm --name=project_0 \
 --env="DISPLAY=$DISPLAY" kelebrimbor97/enpm662_project_0
 ```
 
-### 6.2 Without CUDA enabled GPU
+### 6.2 Without GPU
 ``` shell
 docker run -it --rm --name=project_0 \
 -v <ABSOLUTE_PATH_TO_CODE_ON_YOUR_COMPUTER>:/home/project0 \
@@ -247,9 +247,28 @@ docker run -it --rm --name=project_0 \
 --env="DISPLAY=$DISPLAY" kelebrimbor97/enpm662_project_0
 ```
 
-Then you can make changes on your local code and do all the lprocessing inside the container.
-   
+Also, to go inside the container using another terminal use:
+`docker exec -it project_0 bash`
 
+Then you can make changes on your local code and do all the lprocessing inside the container.
+
+##### Command breakdown Explanation
+
+1. `docker run` - Run the docker
+2. `-it` - Interactive mode
+3. `--rm` - Remove docker container on exit (NOTE: If you wish to keep the container remove this tag)
+4. `--name=` - Tag to name thje container
+5. `-v` - Volume mounting to mount your local directory to a directory inside the docker container
+6. `--net=host` - Use the same network as host computer on which the image is being run
+7. `--pid=host` - Process namespace same as host
+8. `--privileged` - access all ports
+9. `--env="DISPLAY=$DISPLAY"` - Environment variable to use same display as host pc
+10. `kelebrimbor97/enpm662_project_0` - Image from which we create our container
+
+
+Remember to follow the order of arguments as it is fixed inside docker.
+   
+If you 
 
 
    
