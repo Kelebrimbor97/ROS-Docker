@@ -136,14 +136,14 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
 3. Navigate to to location where the Dockerfile is stored:
 
-    `cd ROS-Docker/Scripts/Galactic/`
+    `cd ROS-Docker/Scripts/Humble/`
 
 4. Build the docker Image using this command:
 
-    `docker build -t --network=host modelling_ros .`
+    `docker build --network=host -t modelling_ros .`
 
 > [!IMPORTANT]
-> Take a look at the comments on lines 9 and 10 of the  in `Scripts/Galactic/Dockerfile` before you run this command.
+> Take a look at the comments on lines 9 and 10 of the  in `Scripts/Humble/Dockerfile` before you run this command.
 
 
 > [!TIP]
@@ -188,9 +188,9 @@ For opening a different terminal in the same container, first open a new termina
 
 Given that we have a base image with ROS installed, we will create another image from the base one for our turtlebot3. Think of this similar to having a child class inheriting qualities from the parent class.
 
-For doing that, navigate to Scripts/Galactic/Projects/Turtlebot3 and simply build the image from the Dockerfile using the following command:
+For doing that, navigate to Scripts/Humble/Projects/Turtlebot3 and simply build the image from the Dockerfile using the following command:
 
-`docker build -t turtlebot3_galactic .`
+`docker build -t turtlebot3_humble .`
 
 > [!TIP]
 >- Note: Run this command in a Linux terminal, not inside a Docker container.
@@ -207,11 +207,11 @@ For doing that, navigate to Scripts/Galactic/Projects/Turtlebot3 and simply buil
 
 2. Spin up a container by using the image created in the previous step:
 
-    `docker run -it --rm --name=project_0 --gpus=all --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" turtlebot3_galactic`
+    `docker run -it --rm --name=project_0 --gpus=all --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" turtlebot3_humble`
    
    or
    
-    `docker run -it --rm --name=project_0 --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" turtlebot3_galactic`
+    `docker run -it --rm --name=project_0 --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" turtlebot3_humble`
 
 4. Launch Gazebo using
    `ros2 launch turtlebot3_gazebo empty_world.launch.py`

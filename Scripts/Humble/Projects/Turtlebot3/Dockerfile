@@ -28,15 +28,34 @@ RUN apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 
-# Install turtlebot3
-RUN mkdir ~/turtlebot3_ws && \
-    cd ~/turtlebot3_ws && \
-    mkdir src && \
-    wget https://raw.githubusercontent.com/ROBOTIS-GIT/turtlebot3/ros2/turtlebot3.repos && \
-    vcs import src<turtlebot3.repos && \
-    rosdep update && \
-    rosdep install --from-paths src --ignore-src -y && \
-    colcon build
+# # Install turtlebot3
+# RUN /bin/bash -lc "source /opt/ros/$ROS_DISTRO/setup.bash" && \
+#     mkdir ~/turtlebot3_ws && \
+#     cd ~/turtlebot3_ws && \
+#     mkdir src && \
+#     wget https://raw.githubusercontent.com/ROBOTIS-GIT/turtlebot3/$ROS_DISTRO/turtlebot3.repos && \
+#     vcs import src<turtlebot3.repos
+
+# # after: vcs import src < turtlebot3.repos
+# RUN cd ~/turtlebot3_ws/src && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_cmake_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_tools_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_utils_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_common_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_msgs_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_math_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_plugin_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_physics_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_rendering_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_sensors_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_transport_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_ogre_next_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/gz_sim_vendor.git && \
+#     git clone -b jazzy https://github.com/gazebo-release/sdformat_vendor.git
+
+# RUN cd ~/turtlebot3_ws && \
+#     rosdep update && \
+#     rosdep install --from-paths src --ignore-src -y --rosdistro $ROS_DISTRO
     
 # Source ROS2 everytime a new terminal is opened into the Docker container
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc && \
