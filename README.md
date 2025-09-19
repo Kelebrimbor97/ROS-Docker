@@ -207,11 +207,11 @@ For doing that, navigate to Scripts/Humble/Projects/Turtlebot3 and simply build 
 
 2. Spin up a container by using the image created in the previous step:
 
-    `docker run -it --rm --name=project_0 --gpus=all --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" turtlebot3_humble`
+    `docker run -it --rm --name=project_0 -v <ABSOLUTE_PATH_TO_CODE_ON_YOUR_COMPUTER>:/home/project0 --gpus=all --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" turtlebot3_humble`
    
    or
    
-    `docker run -it --rm --name=project_0 --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" turtlebot3_humble`
+    `docker run -it --rm --name=project_0 -v <ABSOLUTE_PATH_TO_CODE_ON_YOUR_COMPUTER>:/home/project0 --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" turtlebot3_humble`
 
 4. Launch Gazebo using
    `ros2 launch turtlebot3_gazebo empty_world.launch.py`
@@ -221,6 +221,33 @@ For doing that, navigate to Scripts/Humble/Projects/Turtlebot3 and simply build 
    
 Then luanch teleop using this code:
    `ros2 run turtlebot3_teleop teleop_keyboard`
+
+
+## 6. Direct docker pull, NO BUILDING
+
+If you want to skip building, pull the image directly from docker hub using the following command:
+
+`docker pull kelebrimbor97/enpm662_project_0`
+
+Then run the following command to run you container:
+
+### 6.1 With CUDA enabled GPU
+``` shell
+docker run -it --rm --name=project_0 \
+-v <ABSOLUTE_PATH_TO_CODE_ON_YOUR_COMPUTER>:/home/project0 \
+--gpus=all --net=host --pid=host --privileged \
+--env="DISPLAY=$DISPLAY" kelebrimbor97/enpm662_project_0
+```
+
+### 6.2 Without CUDA enabled GPU
+``` shell
+docker run -it --rm --name=project_0 \
+-v <ABSOLUTE_PATH_TO_CODE_ON_YOUR_COMPUTER>:/home/project0 \
+--net=host --pid=host --privileged \
+--env="DISPLAY=$DISPLAY" kelebrimbor97/enpm662_project_0
+```
+
+Then you can make changes on your local code and do all the lprocessing inside the container.
    
 
 
