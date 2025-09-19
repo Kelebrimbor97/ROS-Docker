@@ -266,9 +266,7 @@ Then you can make changes on your local code and do all the lprocessing inside t
 10. `kelebrimbor97/enpm662_project_0` - Image from which we create our container
 
 
-Remember to follow the order of arguments as it is fixed inside docker.
-   
-If you 
+Remember to follow the order of arguments as it is fixed inside docker.cd
 
 
    
