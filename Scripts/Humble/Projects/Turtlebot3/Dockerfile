@@ -7,10 +7,33 @@ RUN apt-get upgrade -y
 RUN apt-get dist-upgrade -y
 
 # Base ROS libraries
-RUN apt-get install ghostscript -y
-RUN apt-get install -y \
+# RUN apt-get install ghostscript -y
+# RUN apt-get install -y \
+#         python3-colcon-common-extensions \
+#         ros-$ROS_DISTRO-hardware-interface \
+#         ros-$ROS_DISTRO-ament-cmake-clang-format \
+#         usbutils \
+#         fdisk \
+#         python3-wstool \
+#         python3-rosdep \
+#         ninja-build \
+#         stow \
+#         ros-$ROS_DISTRO-cartographer \
+#         ros-$ROS_DISTRO-cartographer-ros \
+#         ros-$ROS_DISTRO-navigation2 \
+#         ros-$ROS_DISTRO-nav2-bringup \
+#         ros-$ROS_DISTRO-joint-state-publisher* \
+#         ros-$ROS_DISTRO-robot-localization* && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y gedit && \
+    apt-get install -y \
         python3-colcon-common-extensions \
         ros-$ROS_DISTRO-hardware-interface \
+        gcc-arm-none-eabi \
         ros-$ROS_DISTRO-ament-cmake-clang-format \
         usbutils \
         fdisk \
@@ -18,6 +41,7 @@ RUN apt-get install -y \
         python3-rosdep \
         ninja-build \
         stow \
+        ros-$ROS_DISTRO-gazebo-* \
         ros-$ROS_DISTRO-cartographer \
         ros-$ROS_DISTRO-cartographer-ros \
         ros-$ROS_DISTRO-navigation2 \
@@ -27,36 +51,20 @@ RUN apt-get install -y \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-
-# # Install turtlebot3
-# RUN /bin/bash -lc "source /opt/ros/$ROS_DISTRO/setup.bash" && \
-#     mkdir ~/turtlebot3_ws && \
-#     cd ~/turtlebot3_ws && \
-#     mkdir src && \
-#     wget https://raw.githubusercontent.com/ROBOTIS-GIT/turtlebot3/$ROS_DISTRO/turtlebot3.repos && \
-#     vcs import src<turtlebot3.repos
-
-# # after: vcs import src < turtlebot3.repos
-# RUN cd ~/turtlebot3_ws/src && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_cmake_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_tools_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_utils_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_common_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_msgs_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_math_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_plugin_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_physics_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_rendering_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_sensors_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_transport_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_ogre_next_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/gz_sim_vendor.git && \
-#     git clone -b jazzy https://github.com/gazebo-release/sdformat_vendor.git
-
-# RUN cd ~/turtlebot3_ws && \
-#     rosdep update && \
-#     rosdep install --from-paths src --ignore-src -y --rosdistro $ROS_DISTRO
+# Official instructions
+RUN /bin/bash -lc "source /opt/ros/$ROS_DISTRO/setup.bash" && \
+    mkdir -p ~/turtlebot3_ws/src && \
+    cd ~/turtlebot3_ws/src/ && \
+    git clone -b $ROS_DISTRO https://github.com/ROBOTIS-GIT/DynamixelSDK.git && \
+    git clone -b $ROS_DISTRO https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git && \
+    git clone -b $ROS_DISTRO https://github.com/ROBOTIS-GIT/turtlebot3.git && \
+    sudo apt install python3-colcon-common-extensions && \
+    cd ~/turtlebot3_ws && \
+    colcon build --symlink-install && \
+    echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc 
     
+    # source ~/.bashrc
+
 # Source ROS2 everytime a new terminal is opened into the Docker container
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc && \
     echo ". /usr/share/gazebo/setup.sh" >> ~/.bashrc && \
