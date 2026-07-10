@@ -142,9 +142,6 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
     `docker build --network=host -t modelling_ros_humble .`
 
-> [!IMPORTANT]
-> Take a look at the comments on lines 9 and 10 of the  in `Scripts/Humble/Dockerfile` before you run this command.
-
 
 > [!TIP]
 >- `modelling_ros` can be replaced with any other name of your choice, but remember to replace it in future Dockerfiles you create.
@@ -161,7 +158,7 @@ We are finally ready to use our ROS Docker image. To do that, clone this repo, b
 
 2. Spin up a container by using the image created in the previous step:
 
-    `docker run -it --rm --name=project_0 --gpus=all --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" modelling_ros`
+    `docker run -it --rm --name=project_0 --gpus=all --net=host --pid=host --privileged --env="DISPLAY=$DISPLAY" modelling_ros_humble
 
 > [!TIP]
 >- You can again have a container name of you choice instead of `project_0`.
