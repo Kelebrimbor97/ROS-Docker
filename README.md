@@ -21,7 +21,7 @@ For this course, and for a stable installation, we recommend that you install ei
 
 >[!Important]
 > Remember to be equipped with the following things before you get started with the installation:
-> 1. A computer with an Ubuntu 22.04 or 20.04 installation (prefereable fresh but not important).
+> 1. A computer with an Ubuntu 20.04 or later version installation (prefereable fresh but not important).
 > 2. A stable and high - speed internet connection
 > 3. High patience. At times, the downloads may be slow regardless of how fast your connection is. It may be just an hour or as long as 6 to 8.
 > 4. Habit of periodically checking in.
