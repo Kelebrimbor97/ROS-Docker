@@ -46,10 +46,10 @@ After you are done installing Ubuntu, follow the following instructions from Lam
 > `sudo apt-get update && sudo apt-get upgrade`
 >- followed by:
 > `sudo apt-get dist-upgrade`
-> -Run this code to ensure your GPU is detected
+>- Run this code to ensure your GPU is detected
 >  `nvidia-smi`
-> If installing Lambda affects your GPU drivers, download the latest GPU driver directly from the NVIDIA website (if you have Nvidia GPU) and follow the installation instructions. After the installation is complete, verify that the driver is working correctly by running
-> - `nvidia-smi`
+>- If installing Lambda affects your GPU drivers, download the latest GPU driver directly from the NVIDIA website (if you have Nvidia GPU) and follow the installation instructions. After the installation is complete, verify that the driver is working correctly by running
+>- `nvidia-smi`
 
 4. We now utilize a GPU accelerated docker using the following command:
 
