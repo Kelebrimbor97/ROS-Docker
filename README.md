@@ -284,11 +284,13 @@ Then you can make changes on your local code and do all the lprocessing inside t
 3. `--rm` - Remove docker container on exit (NOTE: If you wish to keep the container remove this tag)
 4. `--name=` - Tag to name thje container
 5. `-v` - Volume mounting to mount your local directory to a directory inside the docker container
-6. `--net=host` - Use the same network as host computer on which the image is being run
-7. `--pid=host` - Process namespace same as host
-8. `--privileged` - access all ports
-9. `--env="DISPLAY=$DISPLAY"` - Environment variable to use same display as host pc
-10. `kelebrimbor97/enpm662_project_0` - Image from which we create our container
+6. `<ABSOLUTE_PATH_TO_CODE_ON_YOUR_COMPUTER>:` - folder that you want to mount to your docker container
+7. `:/home/project0` - folder in docker container where the mounted files will be available 
+8. `--net=host` - Use the same network as host computer on which the image is being run
+9. `--pid=host` - Process namespace same as host
+10. `--privileged` - access all ports
+11. `--env="DISPLAY=$DISPLAY"` - Environment variable to use same display as host pc
+12. `kelebrimbor97/enpm662_project_0` - Image from which we create our container
 
 
 Remember to follow the order of arguments as it is fixed inside docker.cd
