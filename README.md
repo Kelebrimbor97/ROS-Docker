@@ -50,6 +50,19 @@ After you are done installing Ubuntu, follow the following instructions from Lam
 >  `nvidia-smi`
 >- If installing Lambda affects your GPU drivers, download the latest GPU driver directly from the NVIDIA website (if you have Nvidia GPU) and follow the installation instructions. After the installation is complete, verify that the driver is working correctly by running:
 >- `nvidia-smi`
+>- For example if your GPU is Nvidia 5080 RTX :
+>- First disable secure boot fron BIOS/Boot setting then run these codes:
+>- `sudo apt install build-essential libglvnd-dev pkg-config gcc-14 linux-headers-$(uname -r)`
+>- `sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-14 14`
+>- `sudo apt update && sudo upgrade -y`
+>- `sudo systemctl isolate multi-user.target`
+>- `sudo apt purge --purge nvidia-* libnvidia-*`
+>- `sudo apt update`
+>- `sudo add-apt-repository ppa:graphics-drivers/ppa`
+>- `sudo apt update`
+>- `sudo apt install nvidia-driver-580-open`
+>- `sudo reboot`
+>- `nvidia-smi`
 
 4. We now utilize a GPU accelerated docker using the following command:
 
@@ -202,8 +215,9 @@ For doing that, navigate to Scripts/Humble/Projects/Turtlebot3 and simply build 
 >- Note: Run this command in a Linux terminal, not inside a Docker container.
 >- Note: If you install TurtleBot3 using our Docker image as described in Section 4 of these instructions, you can skip Step 4 ('Importing TurtleBot3') in the Project 0 instructions and jump to last command and Launch the turtlebot in Gazebo using:
 
-`ros2 launch turtlebot3_gazebo empty_world.launch.py`
-
+>- `ros2 launch turtlebot3_gazebo empty_world.launch.py`
+>- If for any reason the Gazebo fails to run using GPU, run this code to deactivate the GPU:
+>- export LIBGL_ALWAYS_SOFTWARE=1`
 >- To run teleop node, open another linux terminal and run this:
 >- `docker exec -it project_0 bash`
 
