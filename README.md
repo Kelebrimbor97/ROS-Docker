@@ -204,6 +204,11 @@ For doing that, navigate to Scripts/Humble/Projects/Turtlebot3 and simply build 
 
 `ros2 launch turtlebot3_gazebo empty_world.launch.py`
 
+>- To run teleop node, open another linux terminal and run this:
+>- `docker exec -it project_0 bash`
+
+>- Then luanch teleop using this code:
+>- `ros2 run turtlebot3_teleop teleop_keyboard`
 
 ## 5. How to run the next time
 
