@@ -216,7 +216,7 @@ For doing that, navigate to Scripts/Humble/Projects/Turtlebot3 and simply build 
 >- Note: If you install TurtleBot3 using our Docker image as described in Section 4 of these instructions, you can skip Step 4 ('Importing TurtleBot3') in the Project 0 instructions and jump to last command and Launch the turtlebot in Gazebo using:
 
 >- `ros2 launch turtlebot3_gazebo empty_world.launch.py`
->- If for any reason the Gazebo fails to run using GPU, run this code to deactivate the GPU:
+>- If for any reason the Gazebo fails to run using GPU, run this code to deactivate the GPU inside the docker container:
 >- export LIBGL_ALWAYS_SOFTWARE=1`
 >- To run teleop node, open another linux terminal and run this:
 >- `docker exec -it project_0 bash`
